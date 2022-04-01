@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <span>Welcome to <%= title %>  </span><a href="../">Home Page</a>
+
+    <h2>View Your Flight List</h2>
+    <ul>
+      <% flights.forEach( (f,i) => { %>
+        <h4>Here is your flight inof #<%= i %></h4>
+            <li><%= f.airline %></li>
+            <li><%= f.airport %></li>
+            <li><%= f.flightNo %></li>
+            <li><%= f.departs %></li>
+            <p> -----------------</p>
+      <% }); %>
+    </ul>
+  </body>
+</html>
