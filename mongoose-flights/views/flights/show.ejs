@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <span>Welcome to <%= title %>  </span><a href="../">Home Page</a>
+
+    <h2>View Your Flight Info</h2>
+    <ul>
+
+        <h4>Here is your flight inof </h4>
+            <li><%= flight.airline %> </li>
+            <li><%= flight.airport %></li>
+            <li><%= flight.flightNo %></li>
+            <li><%= flight.departs %></li>
+            <% if(flight.destinations.length > 0) { %>
+            <% flight.destinations.forEach( function(d) { %>
+              <li><%= d.airport %></li>
+              <li><%= d.arrival %></li>
+              <% }); %>
+              <% } %>
+            <p> -----------------</p>
+
+    </ul>
+
+    <form action="/flights/<%= flight._id %>" method="POST">
+      <label>airline
+        <select name="airport">
+          <option value="AUS">AUS</option>
+          <option value="DFW">DFW</option>
+          <option value="DEN">DEN</option>
+          <option value="LAX">LAX</option>
+          <option value="SAN">SAN</option>
+        </select>
+      </label><br>
+        <label for="date">DATE</label>
+        <input id="date" type="datetime-local" name="arrival">
+      <input type="submit" value="Add Destination">
+    </form>
+  </body>
+</html>

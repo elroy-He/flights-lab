@@ -6,11 +6,19 @@
  // optional shortcut to the mongoose.Schema class
  const Schema = mongoose.Schema;
 
+ const destinationSchema = new Schema({
+  airport: {
+    type: String,
+    enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN']
+  },
+  arrival: {
+    type: Date
+  }
+});
 
  const flightSchema = new Schema({
    airline: {
      type: String,
-     default: 'n/a',
      enum: ['American', 'Delta', 'Southwest', 'United']
    },
    airport: {
@@ -20,12 +28,15 @@
     },
    flightNo: {
      type: Number,
-     dafault: 'n/a',
      min: 10,
      max: 9999
    },
    departs: {
-     type: Date}
-   });
+     type: Date
+   },
+   destinations: {
+     type: [destinationSchema]
+   }
+  });
 
  module.exports = mongoose.model('Flight', flightSchema);

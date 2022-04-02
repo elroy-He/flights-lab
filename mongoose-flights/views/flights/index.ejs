@@ -12,7 +12,8 @@
     <ul>
       <% flights.forEach( (f,i) => { %>
         <h4>Here is your flight inof #<%= i %></h4>
-            <li><%= f.airline %></li>
+        <a href="/flights/<%= f._id %>">show info detail</a>
+            <li><%= f.airline %> </li>
             <li><%= f.airport %></li>
             <li><%= f.flightNo %></li>
             <li><%= f.departs %></li>
