@@ -16,6 +16,8 @@
   }
 });
 
+
+
  const flightSchema = new Schema({
    airline: {
      type: String,
@@ -23,7 +25,6 @@
    },
    airport: {
      type: String,
-     default: 'DEN',
      enum: ['ATL', 'DFW', 'DEN', 'LAX', 'SAN']
     },
    flightNo: {
@@ -34,9 +35,9 @@
    departs: {
      type: Date
    },
-   destinations: {
-     type: [destinationSchema]
-   }
-  });
+   destinations:[ destinationSchema ]
+
+});
 
  module.exports = mongoose.model('Flight', flightSchema);
+

@@ -12,6 +12,15 @@
     <span>Welcome to <%= title %>  </span><a href="../">HOME</a>
 
     <h4>Here is your flight inof </h4>
+    <a href= "/flights/<%= flight._id %>/tickets/new">Add New Tickets</a>
+
+
+    <ul class="list-group">
+
+        <% tickets.forEach(t => { %>
+          <li class="list-group-item list-group-item-dark"><%= t.seat %> <%= t.price %></li>
+        <% }) %>
+    </ul>
 
     <ul class="list-group">
       <li class="list-group-item list-group-item-dark"><%= flight.airline %> </li>

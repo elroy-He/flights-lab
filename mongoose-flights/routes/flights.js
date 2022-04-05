@@ -7,8 +7,12 @@ const flightController = require('../controllers/flights');
 //   res.send('respond with a resource');
 // });
 
+router.get('/index', flightController.index);
 router.get('/new', flightController.new);
+router.get('/:id', flightController.show);
+
 router.post('/', flightController.create);
 
-router.get('/index', flightController.index);
+
+
 module.exports = router;
